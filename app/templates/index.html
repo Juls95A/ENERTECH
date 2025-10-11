@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnerTech - Inicio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <!-- Fuentes e íconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#019863",
+            "background-light": "#f5f8f7",
+            "background-dark": "#0f1117",
+            "surface-light": "#FFFFFF",
+            "surface-dark": "#1a1d25",
+            "text-light": "#212121",
+            "text-dark": "#e8eaed",
+            "text-secondary-light": "#757575",
+            "text-secondary-dark": "#9aa0a6",
+          },
+          fontFamily: {
+            display: "Space Grotesk",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #theme-toggle .sun-icon { display: none; }
+    #theme-toggle.dark .moon-icon { display: none; }
+    #theme-toggle.dark .sun-icon { display: block; }
+    #sidebar {
+      transform: translateX(-100%);
+    }
+    #sidebar.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display flex">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed top-0 left-0 bg-surface-light dark:bg-surface-dark w-64 min-h-screen p-6 space-y-6 shadow-lg transition-transform z-50">
+    <div class="flex justify-between items-center">
+      <span class="text-xl font-bold text-primary">Menú</span>
+      <button id="toggleSidebarClose" class="text-gray-500 dark:text-gray-400">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+    <nav class="space-y-4">
+      <a href="#" class="block text-base hover:text-primary transition">Inicio</a>
+      <a href="#" class="block text-base hover:text-primary transition">Anexar Factura</a>
+      <a href="#" class="block text-base hover:text-primary transition">Análisis</a>
+      <a href="#" class="block text-base hover:text-primary transition">Gráfico</a>
+      <a href="#" class="block text-base hover:text-primary transition">Reportes</a>
+      <a href="#" class="block text-base hover:text-primary transition">Comunidad</a>
+      <a href="#" class="block text-base hover:text-primary transition">Quiénes Somos</a>
+    </nav>
+  </aside>
+
+  <!-- Contenedor principal -->
+  <div class="flex-1 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-surface-light dark:bg-surface-dark shadow flex justify-between items-center px-6 py-4">
+      <div class="flex items-center space-x-4 cursor-pointer" id="toggleSidebarOpen">
+        <img src="{{ url_for('static', filename='img/Logo.jpg') }}" alt="EnerTech Logo" class="h-10 w-auto rounded-md" />
+        <span class="text-xl font-bold text-primary">EnerTech</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button id="theme-toggle" class="text-text-secondary-dark dark:text-text-secondary-light p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+          <span class="material-symbols-outlined moon-icon">dark_mode</span>
+          <span class="material-symbols-outlined sun-icon">light_mode</span>
+        </button>
+        <a href="{{ url_for('main.home') }}" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Iniciar Sesión</a>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="p-6 space-y-16">
+      <section class="text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Bienvenido a EnerTech</h2>
+        <p class="text-lg text-text-secondary-light dark:text-text-secondary-dark max-w-2xl mx-auto">
+          Plataforma inteligente para el control y monitoreo mensual del consumo energético.
+        </p>
+      </section>
+
+      <section class="grid md:grid-cols-3 gap-10 text-center">
+        <div>
+          <h3 class="text-2xl font-bold mb-2 text-primary">Misión</h3>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark">Brindar a los usuarios una plataforma digital innovadora e interactiva que les permita conocer, analizar y optimizar su consumo eléctrico a través del uso de sus facturas de energía y herramientas de visualización accesibles. EnerTech promueve la toma de decisiones informadas, la adopción de hábitos sostenibles y la participación comunitaria, fortaleciendo el compromiso con un consumo energético responsable y eficiente.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2 text-primary">Visión</h3>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark">Para el año 2035, EnerTech será reconocida como una plataforma web líder en la gestión inteligente y sostenible del consumo energético en los hogares, consolidándose como un referente nacional en transformación digital y eficiencia energética. Buscamos impulsar una cultura ciudadana de uso racional de la energía, basada en el aprovechamiento de los datos, la educación digital y la colaboración entre usuarios, contribuyendo así al desarrollo de comunidades conscientes y comprometidas con el futuro del planeta.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2 text-primary">Objetivo</h3>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark">Desarrollar una plataforma web intuitiva y educativa que facilite a los hogares el seguimiento y análisis personalizado de su consumo energético, mediante la extracción automática de datos históricos, la generación de reportes comparativos y la entrega de recomendaciones prácticas de ahorro, contribuyendo al bienestar económico de los usuarios y a la sostenibilidad ambiental a largo plazo.</p>
+        </div>
+      </section>
+
+      <!-- Creadores -->
+      <section>
+        <h3 class="text-3xl font-bold text-center mb-10">Creadores</h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="flex flex-col items-center space-y-2">
+            <img src="{{ url_for('static', filename='img/creador1.jpg') }}" alt="Creador 1" class="w-28 h-28 rounded-full object-cover shadow" />
+            <h4 class="text-lg font-semibold text-primary">Juliana Álvarez</h4>
+            <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Líder de Tecnología</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <img src="{{ url_for('static', filename='img/creador2.jpg') }}" alt="Creador 2" class="w-28 h-28 rounded-full object-cover shadow" />
+            <h4 class="text-lg font-semibold text-primary">Sayuri Moreno</h4>
+            <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Líder comunicación y social</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <img src="{{ url_for('static', filename='img/creador3.jpg') }}" alt="Creador 3" class="w-28 h-28 rounded-full object-cover shadow" />
+            <h4 class="text-lg font-semibold text-primary">Santiago Jaramillo</h4>
+            <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Líder ambiental y sostenibilidad</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <img src="{{ url_for('static', filename='img/creador4.jpg') }}" alt="Creador 4" class="w-28 h-28 rounded-full object-cover shadow" />
+            <h4 class="text-lg font-semibold text-primary">Johan López</h4>
+            <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Líder de ideación e innovación</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="text-center">
+        <h3 class="text-3xl font-bold mb-4">¿Cómo funciona?</h3>
+        <p class="text-text-secondary-light dark:text-text-secondary-dark max-w-3xl mx-auto">
+          Regístrate en la plataforma, ingresa tu factura EPM y comienza a visualizar tu consumo energético mediante un gráfico sencillo de entender. Recibe reportes, participa en la comunidad para mejorar tu eficiencia energética.
+        </p>
+      </section>
+    </main>
+
+    <footer class="mt-auto py-6 text-center text-sm text-text-secondary-light dark:text-text-secondary-dark">
+      © 2025 EnerTech. Todos los derechos reservados.
+    </footer>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const openSidebar = document.getElementById('toggleSidebarOpen');
+    const closeSidebar = document.getElementById('toggleSidebarClose');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggle.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      themeToggle.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      themeToggle.classList.toggle('dark');
+      localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    openSidebar.addEventListener('click', () => sidebar.classList.add('open'));
+    closeSidebar.addEventListener('click', () => sidebar.classList.remove('open'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnerTech - Registro</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap"
+  />
+
+  <style>
+    body {
+      font-family: "Space Grotesk", "Noto Sans", sans-serif;
+      background-color: #0f1117;
+      color: #e8eaed;
+      min-height: 100vh;
+    }
+
+    input {
+      background-color: #181a20 !important;
+      border: none !important;
+      color: #e8eaed !important;
+    }
+
+    input::placeholder {
+      color: #9aa0a6 !important;
+    }
+
+    button {
+      background-color: #019863;
+    }
+
+    button:hover {
+      background-color: #017a50;
+    }
+
+    header {
+      background-color: #181a20;
+    }
+  </style>
+</head>
+
+<body class="flex flex-col items-center justify-center dark:bg-[#0f1117] dark:text-[#e8eaed]">
+  <!-- Header con logo -->
+  <header class="w-full flex items-center justify-between border-b border-[#24272e] px-6 py-3 fixed top-0 left-0 bg-[#181a20] z-10">
+    <div class="flex items-center gap-3 text-white">
+      <img src="img/Logo.jpg" alt="EnerTech Logo" class="h-10 w-auto" />
+      <h2 class="text-lg font-bold">EnerTech</h2>
+    </div>
+  </header>
+
+  <!-- Contenedor centrado -->
+  <main class="flex flex-col items-center justify-center w-full px-6 py-10 mt-20 mb-10">
+    <div class="w-full max-w-md bg-[#181a20] rounded-2xl p-8 shadow-lg">
+      <h2 class="text-3xl font-bold text-center mb-6">Crea tu cuenta</h2>
+
+      <!-- FORMULARIO -->
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-2">Nombre</label>
+          <input
+            type="text"
+            placeholder="Ingresa tu nombre"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Apellido</label>
+          <input
+            type="text"
+            placeholder="Ingresa tu apellido"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Número de teléfono</label>
+          <input
+            type="tel"
+            placeholder="Ingresa tu número"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Dirección</label>
+          <input
+            type="text"
+            placeholder="Ingresa tu dirección"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Correo electrónico</label>
+          <input
+            type="email"
+            placeholder="Ingresa tu correo"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Contraseña</label>
+          <input
+            type="password"
+            placeholder="Ingresa tu contraseña"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Ocupación</label>
+          <input
+            type="text"
+            placeholder="Ingresa tu ocupación"
+            class="w-full rounded-lg h-12 px-4"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Número de personas en el hogar</label>
+          <input
+            type="number"
+            placeholder="Ingresa el número de personas"
+            min="1"
+            step="1"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Estrato socioeconómico</label>
+          <input
+            type="number"
+            placeholder="Ingresa tu estrato (1 - 6)"
+            min="1"
+            step="1"
+            class="w-full rounded-lg h-12 px-4"
+            required
+          />
+        </div>
+
+        <!-- BOTÓN -->
+        <button
+          type="submit"
+          class="w-full h-12 rounded-lg text-white font-bold text-base mt-4 transition-colors"
+        >
+          Registrarse
+        </button>
+      </form>
+
+      <!-- LINK INFERIOR -->
+      <p class="text-sm text-center mt-6 text-[#9aa0a6]">
+        ¿Ya tienes una cuenta?
+        <a href="#" class="text-[#019863] hover:underline">Inicia sesión</a>
+      </p>
+    </div>
+  </main>
+</body>
+</html>
+
